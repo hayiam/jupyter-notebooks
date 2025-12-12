@@ -117,4 +117,100 @@ This implementation explores:
 - Relationship between activation patterns and network efficiency
 - Potential for reduced training time through focused enhancement
 
+# Adaptive_follow_path.ipynb and Final_adaptive.ipynb - adaptive Neural Network with Path Tracking, deep analysis
+
+This files contains an implementation of an adaptive neural network with path tracking capabilities for analyzing learning dynamics during training.
+
+The code demonstrates how custom layer implementations can provide deep insights into the black box of neural network learning, making the training process more transparent and interpretable.
+
+# Cycle_network.ipynb - cycle Network: Neural Network with Path Awareness and Dynamic Architecture Adjustment
+
+This file contains an experimental implementation of a neural network model that features **path-aware learning** and **dynamic architecture adjustment** capabilities. The model automatically monitors its learning process, identifies strong information pathways, and adapts its architecture in real-time to optimize performance.
+
+## Key Features
+
+### 🔍 **Path-Aware Learning**
+- Custom `PathAwareDense` layer that tracks neuron activations and information value
+- **Neuron value metrics**: Combines activation frequency and weight magnitude
+- **Real-time path analysis**: Identifies the strongest information pathways through the network
+- **Automatic weight enhancement**: Strengthens weights along stable pathways
+
+### 🏗️ **Dynamic Architecture Adjustment**
+- **Automatic layer addition**: Adds new hidden layers based on path strength metrics
+- **Batch size optimization**: Dynamically adjusts batch size during training
+- **Speed monitoring**: Tracks training speed and detects performance degradation
+- **Multi-restart capability**: Supports up to 10 training restarts with different architectures
+
+### 📊 **Comprehensive Monitoring**
+- **Path strength tracking**: Monitors the strength of information pathways over time
+- **Stability counters**: Tracks short-term and long-term stability of network paths
+- **Performance metrics**: Records accuracy, loss, and training speed for each epoch
+- **Visualization-ready data**: All metrics are stored for analysis and plotting
+
+## Architecture
+
+### Core Components
+
+1. **`PathAwareDense` Layer**
+   - Custom Keras layer with neuron value tracking
+   - Activation counting and weight magnitude analysis
+   - Information value calculation (70% activation ratio + 30% weight magnitude)
+
+2. **`PathAwareModel` Class**
+   - Extends Keras Sequential model
+   - NetworkX-based graph representation of neural pathways
+   - Automatic path discovery and analysis
+   - Dynamic architecture modification
+
+3. **Training Pipeline**
+   - Automatic stability detection (short-term: 6 epochs, long-term: 6 epochs)
+   - Speed monitoring every 3 epochs
+   - Batch size adjustment (16 → 32 → 64)
+   - Layer addition based on path strength
+
+## Training Process
+
+The model implements an **adaptive training loop** with these key steps:
+
+1. **Initial Training**: Starts with 2 hidden layers (12 and 8 neurons)
+2. **Path Analysis**: Identifies strongest pathways after each epoch
+3. **Stability Check**: Monitors path stability over time
+4. **Weight Enhancement**: Boosts weights along stable paths
+5. **Architecture Adjustment**: Adds new layers when path strength indicates capacity is needed
+6. **Speed Monitoring**: Adjusts batch size based on training speed
+7. **Restart Logic**: Restarts training with new architecture when long-term stability is lost
+
+### Training Parameters
+- **Max restarts**: 10
+- **Speed degradation threshold**: 20%
+- **Min speed**: 400 samples/sec
+- **Speed check interval**: 3 epochs
+- **Stability thresholds**: 6 epochs (short), 6 epochs (long)
+
+## Usage
+
+### Data Generation
+The implementation includes synthetic data generation:
+- 1000 samples with 20 features
+- Uniform distribution from -1 to 1
+- Random binary classification labels
+- 80/20 train/test split with validation subset
+
+## Technical Details
+
+### Dependencies
+- TensorFlow 2.x
+- NetworkX
+- NumPy
+- Matplotlib
+- scikit-learn
+
+## Research Implications
+
+This implementation demonstrates several novel concepts:
+1. **Path-based network analysis**: Treating neural networks as information flow graphs
+2. **Dynamic architecture evolution**: Growing networks based on internal metrics
+3. **Stability-driven training**: Using path stability as a learning signal
+4. **Speed-aware optimization**: Balancing performance with computational efficiency
+
 
