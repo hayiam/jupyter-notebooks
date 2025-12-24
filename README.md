@@ -250,7 +250,7 @@ Maze Generation: DFS algorithm for creating solvable 2D mazes
 3D Tokenizer: Handles 3D coordinate systems and maze representation
 
 ### 3. Core Algorithms
-*A Pathfinding**: Optimal path calculation for training data generation
+Pathfinding: Optimal path calculation for training data generation
 
 Data Generation: Automatic generation of training samples from maze solutions
 
