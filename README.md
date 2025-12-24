@@ -214,3 +214,56 @@ This implementation demonstrates several novel concepts:
 4. **Speed-aware optimization**: Balancing performance with computational efficiency
 
 
+# Labirinth_transformer.ipynb - Maze Transformer: Pathfinding in 2D and 3D Mazes with Transformer Networks
+This project implements Transformer-based neural networks for solving pathfinding problems in 2D and 3D mazes. The models learn to navigate from a start position to a goal by predicting optimal actions at each step.
+
+## Features
+2D Maze Generation: DFS-based maze generation with adjustable complexity
+
+3D Maze Generation: Randomized Prim's algorithm for 3D maze creation
+
+Transformer Architecture: Custom Transformer networks for 2D and 3D environments
+
+Multi-dimensional Support: Works with both 2D and 3D spatial environments
+
+Visualization: Interactive 3D visualization using Plotly
+
+Pathfinding Algorithms: A* algorithm for optimal path generation
+
+Training Pipeline: Complete training and evaluation pipeline
+
+## Project Structure
+The notebook contains several main components:
+
+### 1. 2D Maze Components
+Maze Generation: DFS algorithm for creating solvable 2D mazes
+
+2D Transformer: Transformer model with positional encoding for 2D coordinates
+
+2D Tokenizer: Converts maze states to token sequences with agent/goal positions
+
+### 2. 3D Maze Components
+3D Maze Generation: Randomized Prim's algorithm for 3D maze creation
+
+3D Transformer: Extended Transformer for 3D environments with 6 possible actions
+
+3D Tokenizer: Handles 3D coordinate systems and maze representation
+
+### 3. Core Algorithms
+*A Pathfinding**: Optimal path calculation for training data generation
+
+Data Generation: Automatic generation of training samples from maze solutions
+
+Training Pipeline: Complete training loop with batching and optimization
+
+### 4. Visualization
+3D Maze Visualization: Interactive Plotly visualizations showing:
+
+Maze walls (gray cubes)
+
+Free space (colored by distance from start)
+
+Agent path (red line)
+
+Start (green diamond) and goal (blue cross) positions
+
